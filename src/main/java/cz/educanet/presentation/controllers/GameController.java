@@ -2,19 +2,23 @@ package cz.educanet.presentation.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Text;
+import javafx.scene.layout.GridPane;
+
+import java.awt.event.ActionEvent;
 
 public class GameController {
+    private final int gridSize = 8;
     @FXML
-    public Text text;
-    public Button grid;
+    public GridPane grid;
 
-    @FXML
     public void initialize() {
-    }
-
-    public void onGridClicked(MouseEvent mouseEvent) {
-        text.setText("blablbal");
+        for (int i = 0; i < gridSize; i++) {
+            for (int j = 0; j < gridSize; j++) {
+                Button b = new Button();
+                b.setPrefWidth(200);
+                b.setPrefHeight(200);
+                grid.add(b, i+3,j+3);
+            }
+        }
     }
 }
